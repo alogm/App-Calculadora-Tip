@@ -1,4 +1,4 @@
-import { calcularTip, calcularTotal, claseActivo } from "./utilidades.js";
+import { calcularTip, calcularTotal, totalAccount, claseActivo } from "./utilidades.js";
 
 const billInput = document.querySelector("#input-bill");
 const percentageButton = [...document.querySelectorAll(".percentage-button")];
@@ -6,6 +6,7 @@ const peopleInput = document.querySelector("#input-people");
 const tipAmountInput = document.querySelector("#tip-amount");
 const totalInput = document.querySelector("#total");
 const resetBtn = document.querySelector("#reset-button");
+const accountInput = document.querySelector("#total-account");
 
 let tip = 0;
 let bill = 0;
@@ -29,6 +30,8 @@ function runProgram(button){
 
     tipAmountInput.innerHTML = calcularTip(bill, tip, people);
     totalInput.innerHTML = calcularTotal(bill, tip, people);
+    accountInput.innerHTML = totalAccount(bill, tip);
+    console.log(accountInput);
 
     if (button && button.classList) {  // Verifica si button es un elemento con classList
         for (let btn of percentageButton) {
